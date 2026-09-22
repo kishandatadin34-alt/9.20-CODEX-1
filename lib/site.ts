@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = "https://www.besdergroup.com";
+const DEFAULT_SITE_URL = "https://besdergroup.com";
 
 function resolveSiteUrl(value: string | undefined): string {
   const candidate = value?.trim();

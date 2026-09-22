@@ -1,0 +1,281 @@
+import type { Dictionary } from "@/lib/dictionaries";
+import type { Locale } from "@/lib/i18n";
+
+export const categorySlugs = [
+  "laptop-backpacks",
+  "rolling-backpacks",
+  "business-backpacks",
+  "crossbody-bags",
+] as const;
+
+export type CategorySlug = (typeof categorySlugs)[number];
+
+export const categoryRoutes: Record<string, string> = {
+  school: "/products/custom-school-bag",
+  laptop: "/products/laptop-backpacks",
+  rolling: "/products/rolling-backpacks",
+  business: "/products/business-backpacks",
+  chest: "/products/crossbody-bags",
+};
+
+const categoryIndex: Record<CategorySlug, number> = {
+  "laptop-backpacks": 1,
+  "rolling-backpacks": 2,
+  "business-backpacks": 3,
+  "crossbody-bags": 4,
+};
+
+const categoryImages: Record<CategorySlug, string> = {
+  "laptop-backpacks": "/images/category-laptop.png",
+  "rolling-backpacks": "/images/category-rolling.png",
+  "business-backpacks": "/images/category-business.png",
+  "crossbody-bags": "/images/category-crossbody.png",
+};
+
+const categoryCopy: Record<Locale, {
+  seoSuffix: string;
+  h1: (name: string) => string;
+  intro: (name: string) => string;
+  sections: Array<{ title: string; text: (name: string) => string }>;
+  cta: string;
+}> = {
+  en: {
+    seoSuffix: "Manufacturer | OEM & ODM",
+    h1: (name) => `Custom ${name} for Your Market`,
+    intro: (name) => `${name} developed for brands, wholesalers and retailers that need dependable private-label production, clear specifications and export-ready packing.`,
+    sections: [
+      { title: "Product planning", text: (name) => `Tell us the target user, market, capacity, price range and required features. Our team turns those requirements into a practical ${name.toLowerCase()} specification before sampling.` },
+      { title: "Materials and branding", text: () => "Choose polyester, RPET, nylon or canvas together with lining, zippers, hardware, Pantone colors, embroidery, print, patches and retail packaging." },
+      { title: "Sampling and approval", text: () => "A pre-production sample confirms dimensions, construction, logo placement and workmanship. Timing is confirmed after materials and artwork are approved." },
+      { title: "Quality and export preparation", text: () => "Material checks, in-line inspection and final shipment inspection are planned around the approved sample. Carton marks, labels and packing details are checked before dispatch." },
+    ],
+    cta: "Send your requirements",
+  },
+  fr: {
+    seoSuffix: "Fabricant OEM & ODM",
+    h1: (name) => `${name} personnalisés pour votre marché`,
+    intro: (name) => `${name} développés pour les marques, grossistes et détaillants recherchant une production fiable en marque blanche et un emballage prêt à l'export.`,
+    sections: [
+      { title: "Planification produit", text: () => "Indiquez l'utilisateur cible, le marché, la capacité, le prix et les fonctions souhaitées. Nous préparons un cahier des charges réaliste avant l'échantillonnage." },
+      { title: "Matières et identité", text: () => "Choisissez polyester, RPET, nylon ou toile, ainsi que doublure, zips, couleurs Pantone, broderie, impression, écussons et emballage." },
+      { title: "Échantillon et validation", text: () => "L'échantillon de préproduction confirme dimensions, construction, position du logo et finitions avant la production en série." },
+      { title: "Qualité et préparation export", text: () => "Contrôle des matières, inspection en cours de production et contrôle final sont réalisés selon l'échantillon validé." },
+    ],
+    cta: "Envoyer vos exigences",
+  },
+  es: {
+    seoSuffix: "Fabricante OEM y ODM",
+    h1: (name) => `${name} personalizadas para su mercado`,
+    intro: (name) => `${name} desarrolladas para marcas, mayoristas y minoristas que necesitan producción de marca privada fiable y embalaje listo para exportar.`,
+    sections: [
+      { title: "Planificación del producto", text: () => "Indique el usuario, mercado, capacidad, precio y funciones. Preparamos una especificación práctica antes de crear la muestra." },
+      { title: "Materiales y marca", text: () => "Elija poliéster, RPET, nailon o lona, además de forro, cremalleras, colores Pantone, bordado, impresión, parches y embalaje." },
+      { title: "Muestra y aprobación", text: () => "La muestra de preproducción confirma medidas, estructura, logotipo y acabados antes de la producción en serie." },
+      { title: "Calidad y exportación", text: () => "Comprobamos materiales, producción y producto final según la muestra aprobada antes del envío." },
+    ],
+    cta: "Enviar sus requisitos",
+  },
+  ja: {
+    seoSuffix: "OEM・ODMメーカー",
+    h1: (name) => `市場に合わせたカスタム${name}`,
+    intro: (name) => `${name}を、ブランド、卸売、小売向けに企画・生産。仕様確認から輸出梱包まで対応します。`,
+    sections: [
+      { title: "商品企画", text: () => "対象ユーザー、販売市場、容量、目標価格、必要機能を確認し、サンプル前に実用的な仕様をまとめます。" },
+      { title: "素材・ブランディング", text: () => "ポリエステル、RPET、ナイロン、キャンバス、ファスナー、Pantoneカラー、刺繍、印刷、ワッペンに対応します。" },
+      { title: "サンプル確認", text: () => "量産前サンプルで寸法、構造、ロゴ位置、縫製仕上げを確認します。" },
+      { title: "品質・輸出準備", text: () => "素材検査、工程内検査、最終出荷検査を実施し、梱包とカートン表示を確認します。" },
+    ],
+    cta: "要件を送信",
+  },
+  de: {
+    seoSuffix: "OEM- & ODM-Hersteller",
+    h1: (name) => `Individuelle ${name} für Ihren Markt`,
+    intro: (name) => `${name} für Marken, Groß- und Einzelhändler, die verlässliche Private-Label-Fertigung und exportgerechte Verpackung benötigen.`,
+    sections: [
+      { title: "Produktplanung", text: () => "Nennen Sie Zielgruppe, Markt, Volumen, Zielpreis und Funktionen. Vor der Musterphase erstellen wir eine praktikable Spezifikation." },
+      { title: "Materialien und Branding", text: () => "Wählen Sie Polyester, RPET, Nylon oder Canvas sowie Futter, Reißverschlüsse, Pantone-Farben, Stickerei, Druck, Patches und Verpackung." },
+      { title: "Muster und Freigabe", text: () => "Das Vorserienmuster bestätigt Maße, Konstruktion, Logoposition und Verarbeitung vor der Serienproduktion." },
+      { title: "Qualität und Export", text: () => "Material-, Produktions- und Endkontrollen erfolgen anhand des freigegebenen Musters vor dem Versand." },
+    ],
+    cta: "Anforderungen senden",
+  },
+};
+
+export function getCategoryContent(locale: Locale, slug: CategorySlug, dictionary: Dictionary) {
+  const item = dictionary.home.products.items[categoryIndex[slug]];
+  const copy = categoryCopy[locale];
+  return {
+    name: item.title,
+    caption: item.caption,
+    image: categoryImages[slug],
+    title: `${item.title} | ${copy.seoSuffix} | BESDERWILL`,
+    description: copy.intro(item.title),
+    h1: copy.h1(item.title),
+    intro: copy.intro(item.title),
+    sections: copy.sections.map((section) => ({ title: section.title, text: section.text(item.title) })),
+    cta: copy.cta,
+  };
+}
+
+export const contentPageSlugs = ["oem-odm", "factory", "quality-control", "about", "contact", "privacy-policy", "terms"] as const;
+export type ContentPageSlug = (typeof contentPageSlugs)[number];
+
+export const complianceCopy: Record<Locale, { phone: string; privacy: string; agree: string }> = {
+  en: { phone: "Phone / WhatsApp *", privacy: "Privacy Policy", agree: "By submitting, you agree to our Privacy Policy and allow BESDERWILL to contact you about this inquiry." },
+  fr: { phone: "Téléphone / WhatsApp *", privacy: "Politique de confidentialité", agree: "En envoyant ce formulaire, vous acceptez notre politique de confidentialité et autorisez BESDERWILL à vous contacter au sujet de cette demande." },
+  es: { phone: "Teléfono / WhatsApp *", privacy: "Política de privacidad", agree: "Al enviar el formulario, acepta nuestra política de privacidad y autoriza a BESDERWILL a contactarle sobre esta consulta." },
+  ja: { phone: "電話 / WhatsApp *", privacy: "プライバシーポリシー", agree: "送信により、プライバシーポリシーに同意し、本件に関するBESDERWILLからの連絡を許可します。" },
+  de: { phone: "Telefon / WhatsApp *", privacy: "Datenschutzerklärung", agree: "Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu und erlauben BESDERWILL, Sie zu dieser Anfrage zu kontaktieren." },
+};
+
+const legalCopy: Record<Locale, {
+  privacyTitle: string; privacyDescription: string; termsTitle: string; termsDescription: string;
+  privacySections: Array<{ title: string; text: string }>;
+  termsSections: Array<{ title: string; text: string }>;
+}> = {
+  en: {
+    privacyTitle: "Privacy Policy", privacyDescription: "How BESDERWILL collects and uses information submitted through this website.",
+    termsTitle: "Website Terms", termsDescription: "Terms governing use of the BESDERWILL website and sourcing information.",
+    privacySections: [
+      { title: "Information we collect", text: "When you send an inquiry, we may collect your name, company, email, phone number, country, product requirements and any message you provide." },
+      { title: "How we use information", text: "We use inquiry data to answer your request, prepare quotations, discuss samples and production, prevent abuse and maintain business records." },
+      { title: "Form processing", text: "Website forms are processed by FormSubmit and delivered to our sales inbox. Do not submit confidential designs or payment details through a public form." },
+      { title: "Retention and your choices", text: "We retain correspondence only as needed for sourcing discussions, legal obligations and legitimate business records. You may request access, correction or deletion by email." },
+    ],
+    termsSections: [
+      { title: "Website information", text: "Product descriptions, lead times, minimum quantities, capacity and certification information are general guidance. Final specifications are confirmed in the quotation, sample approval and purchase documents." },
+      { title: "Intellectual property", text: "BESDERWILL website text, layout and brand assets may not be copied for commercial use without permission. Customer artwork remains subject to the rights stated in the applicable agreement." },
+      { title: "Quotations and orders", text: "A website inquiry is not an order. Prices, tooling, sampling, delivery dates, testing and payment terms become binding only when confirmed in writing by authorized parties." },
+      { title: "Contact", text: "Questions about these terms can be sent to the contact details published on this website." },
+    ],
+  },
+  fr: {
+    privacyTitle: "Politique de confidentialité", privacyDescription: "Comment BESDERWILL collecte et utilise les informations envoyées sur ce site.",
+    termsTitle: "Conditions d'utilisation", termsDescription: "Conditions applicables au site BESDERWILL et aux informations d'approvisionnement.",
+    privacySections: [
+      { title: "Informations collectées", text: "Lors d'une demande, nous pouvons recueillir votre nom, entreprise, e-mail, téléphone, pays, besoins produit et message." },
+      { title: "Utilisation", text: "Ces informations servent à répondre, préparer un devis, discuter des échantillons et de la production et conserver les échanges professionnels." },
+      { title: "Traitement des formulaires", text: "Les formulaires sont traités par FormSubmit et transmis à notre équipe commerciale. N'envoyez pas de données de paiement via un formulaire public." },
+      { title: "Vos choix", text: "Vous pouvez demander l'accès, la correction ou la suppression de vos données en nous contactant par e-mail." },
+    ],
+    termsSections: [
+      { title: "Informations du site", text: "Les spécifications, délais, MOQ, capacités et certifications sont indicatifs et doivent être confirmés par devis et documents de commande." },
+      { title: "Propriété intellectuelle", text: "Les contenus et éléments de marque ne peuvent pas être copiés à des fins commerciales sans autorisation." },
+      { title: "Devis et commandes", text: "Une demande sur le site n'est pas une commande. Prix, délais, essais et paiement ne sont valables qu'après confirmation écrite." },
+      { title: "Contact", text: "Toute question peut être envoyée aux coordonnées publiées sur ce site." },
+    ],
+  },
+  es: {
+    privacyTitle: "Política de privacidad", privacyDescription: "Cómo BESDERWILL recopila y utiliza la información enviada en este sitio.",
+    termsTitle: "Términos del sitio", termsDescription: "Condiciones de uso del sitio BESDERWILL y de la información comercial.",
+    privacySections: [
+      { title: "Información recopilada", text: "Al enviar una consulta podemos recopilar nombre, empresa, correo, teléfono, país, requisitos de producto y mensaje." },
+      { title: "Uso de la información", text: "Usamos los datos para responder, preparar cotizaciones, tratar muestras y producción y mantener registros comerciales." },
+      { title: "Procesamiento del formulario", text: "FormSubmit procesa los formularios y los entrega a nuestro equipo comercial. No envíe datos de pago mediante un formulario público." },
+      { title: "Sus opciones", text: "Puede solicitar acceso, corrección o eliminación de sus datos por correo electrónico." },
+    ],
+    termsSections: [
+      { title: "Información del sitio", text: "Especificaciones, plazos, MOQ, capacidad y certificaciones son orientativos y se confirman en la cotización y documentos del pedido." },
+      { title: "Propiedad intelectual", text: "El contenido y los elementos de marca no pueden copiarse para uso comercial sin permiso." },
+      { title: "Cotizaciones y pedidos", text: "Una consulta web no es un pedido. Precio, plazos, pruebas y pagos solo son vinculantes tras confirmación escrita." },
+      { title: "Contacto", text: "Envíe sus preguntas a los datos de contacto publicados en este sitio." },
+    ],
+  },
+  ja: {
+    privacyTitle: "プライバシーポリシー", privacyDescription: "BESDERWILLが本サイトで送信された情報を収集・利用する方法。",
+    termsTitle: "サイト利用条件", termsDescription: "BESDERWILLサイトと調達情報の利用条件。",
+    privacySections: [
+      { title: "収集する情報", text: "お問い合わせ時に、氏名、会社名、メール、電話、国・地域、製品要件、メッセージを収集する場合があります。" },
+      { title: "利用目的", text: "回答、見積作成、サンプル・生産の相談、業務記録の管理に利用します。" },
+      { title: "フォーム処理", text: "フォームはFormSubmitで処理され、当社営業窓口に届きます。支払情報は公開フォームで送信しないでください。" },
+      { title: "お客様の選択", text: "メールにて情報の開示、訂正、削除を依頼できます。" },
+    ],
+    termsSections: [
+      { title: "サイト情報", text: "仕様、納期、MOQ、生産能力、認証は一般的な案内です。最終条件は見積書と注文書類で確定します。" },
+      { title: "知的財産", text: "本サイトのコンテンツやブランド素材の商用複製には許可が必要です。" },
+      { title: "見積・注文", text: "Webからのお問い合わせは注文ではありません。価格、納期、試験、支払条件は書面確認後に有効となります。" },
+      { title: "お問い合わせ", text: "本条件へのご質問は、サイト記載の連絡先へお送りください。" },
+    ],
+  },
+  de: {
+    privacyTitle: "Datenschutzerklärung", privacyDescription: "Wie BESDERWILL über diese Website übermittelte Informationen erhebt und verwendet.",
+    termsTitle: "Website-Bedingungen", termsDescription: "Bedingungen für die Nutzung der BESDERWILL-Website und Beschaffungsinformationen.",
+    privacySections: [
+      { title: "Erhobene Informationen", text: "Bei einer Anfrage können wir Name, Unternehmen, E-Mail, Telefon, Land, Produktanforderungen und Ihre Nachricht erfassen." },
+      { title: "Verwendung", text: "Wir nutzen diese Daten für Antworten, Angebote, Muster- und Produktionsgespräche sowie Geschäftsunterlagen." },
+      { title: "Formularverarbeitung", text: "Formulare werden durch FormSubmit verarbeitet und an unser Vertriebspostfach gesendet. Übermitteln Sie keine Zahlungsdaten über öffentliche Formulare." },
+      { title: "Ihre Rechte", text: "Sie können per E-Mail Auskunft, Berichtigung oder Löschung Ihrer Daten anfordern." },
+    ],
+    termsSections: [
+      { title: "Website-Informationen", text: "Spezifikationen, Lieferzeiten, MOQ, Kapazitäten und Zertifizierungen sind allgemeine Hinweise und werden in Angebot und Bestelldokumenten bestätigt." },
+      { title: "Geistiges Eigentum", text: "Website-Inhalte und Markenelemente dürfen ohne Genehmigung nicht kommerziell kopiert werden." },
+      { title: "Angebote und Bestellungen", text: "Eine Website-Anfrage ist keine Bestellung. Preise, Termine, Prüfungen und Zahlung werden erst nach schriftlicher Bestätigung verbindlich." },
+      { title: "Kontakt", text: "Fragen können an die auf dieser Website veröffentlichten Kontaktdaten gesendet werden." },
+    ],
+  },
+};
+
+export function getContentPage(locale: Locale, slug: ContentPageSlug, dictionary: Dictionary) {
+  const { home, product } = dictionary;
+  if (slug === "privacy-policy" || slug === "terms") {
+    const legal = legalCopy[locale];
+    const privacy = slug === "privacy-policy";
+    return {
+      title: privacy ? legal.privacyTitle : legal.termsTitle,
+      description: privacy ? legal.privacyDescription : legal.termsDescription,
+      eyebrow: "BESDERWILL",
+      image: "/images/factory-product-design.png",
+      sections: privacy ? legal.privacySections : legal.termsSections,
+    };
+  }
+
+  const pages = {
+    "oem-odm": {
+      title: home.process.title,
+      description: `${home.process.description} ${product.custom.description}`,
+      eyebrow: product.hero.kicker,
+      image: "/images/product-design-studio-v2.png",
+      sections: [...home.process.steps, ...product.custom.steps].map(({ title, text }) => ({ title, text })),
+    },
+    factory: {
+      title: home.factory.title,
+      description: home.factory.description,
+      eyebrow: home.factory.eyebrow,
+      image: "/images/product-global-team-v2.png",
+      sections: home.factory.tiles.map((title, index) => ({ title, text: product.trust.items[index]?.text ?? product.quality.factoryText })),
+    },
+    "quality-control": {
+      title: product.quality.factoryTitle,
+      description: `${product.quality.factoryText} ${product.quality.standardsText}`,
+      eyebrow: product.trust.eyebrow,
+      image: "/images/product-export-inspection-v2.png",
+      sections: [
+        { title: product.options.materialTitle, text: product.options.materials.join(" · ") },
+        { title: product.trust.items[1].title, text: product.trust.items[1].text },
+        { title: product.trust.items[3].title, text: product.trust.items[3].text },
+        { title: product.quality.standardsTitle, text: product.quality.standardsText },
+      ],
+    },
+    about: {
+      title: home.partner.title,
+      description: home.partner.description,
+      eyebrow: home.partner.eyebrow,
+      image: "/images/factory-team-global.png",
+      sections: home.partner.bullets.map((title, index) => ({ title, text: product.trust.items[index]?.text ?? home.partner.description })),
+    },
+    contact: {
+      title: home.location.title,
+      description: home.location.description,
+      eyebrow: home.location.eyebrow,
+      image: "/images/openstreetmap-guangzhou-renhe.png",
+      sections: [
+        { title: home.location.addressLabel, text: dictionary.common.address },
+        { title: dictionary.common.nav.contact, text: `${dictionary.common.email} · ${dictionary.common.phone}` },
+        { title: product.quickForm.fast, text: product.quickForm.reply },
+      ],
+    },
+  } satisfies Record<Exclude<ContentPageSlug, "privacy-policy" | "terms">, { title: string; description: string; eyebrow: string; image: string; sections: Array<{ title: string; text: string }> }>;
+
+  return pages[slug];
+}
+

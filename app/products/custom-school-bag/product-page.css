@@ -8,3 +8,9 @@
 /* Preserve the complete 3:2 framing of all supplied factory photographs. */
 .pd-trust-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none;gap:10px}.pd-trust-card,.pd-team,.pd-design,.pd-visit,.pd-export{grid-column:auto;grid-row:auto;aspect-ratio:3/2}.pd-trust-card img,.pd-team img,.pd-export img{object-fit:contain;object-position:center;background:#eef3f7}
 @media(max-width:700px){.pd-trust-grid{grid-template-columns:1fr}.pd-trust-card,.pd-team,.pd-design,.pd-visit,.pd-export{grid-column:1;grid-row:auto;aspect-ratio:3/2}}
+
+/* Local fonts and accessible contrast overrides. */
+:root{--pd-muted:#526985;--pd-pink:#d94360}.product-detail{font-family:var(--font-dm-sans),Arial,sans-serif}.product-detail h1,.product-detail h2,.product-detail h3{font-family:var(--font-manrope),Arial,sans-serif}.pd-hero-form input,.pd-hero-form select,.pd-hero-form textarea,.pd-contact-fields input,.pd-contact-fields select,.pd-contact-fields textarea{font-family:var(--font-dm-sans),Arial,sans-serif}.pd-faq button{font-family:var(--font-dm-sans),Arial,sans-serif}.pd-cert b{font-family:var(--font-manrope),Arial,sans-serif}
+.pd-brand img{width:190px;height:60px;object-fit:contain}
+@media(max-width:520px){.pd-actions{display:flex}.pd-actions .pd-quote{display:none}.pd-actions details{display:block}.pd-brand img{width:145px;height:54px}}
+.pd-breadcrumb{display:flex;align-items:center;gap:7px;padding:12px clamp(24px,4vw,58px);border-bottom:1px solid #e6edf4;color:#60758a;font-size:10px}.pd-breadcrumb a{color:#1c578f;text-decoration:none}.pd-form-privacy{grid-column:1/-1;margin:2px 0 0!important;color:#526985!important;font-size:9px!important;line-height:1.45}.pd-form-privacy a{color:#164f87;font-weight:800}.pd-bottom .pd-form-privacy{color:#fff!important}.pd-bottom .pd-form-privacy a{color:#fff}.pd-legal{display:flex;gap:13px}.pd-legal a{color:#fff;font-size:10px}

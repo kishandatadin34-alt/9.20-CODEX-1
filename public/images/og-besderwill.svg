@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#092f58"/><stop offset=".62" stop-color="#164f87"/><stop offset="1" stop-color="#a84968"/></linearGradient><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4d483"/><stop offset="1" stop-color="#c57925"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1035" cy="122" r="210" fill="#fff" opacity=".045"/><circle cx="1100" cy="560" r="280" fill="#fff" opacity=".035"/>
+  <circle cx="127" cy="115" r="52" fill="none" stroke="url(#gold)" stroke-width="12"/><text x="127" y="137" fill="#fff" text-anchor="middle" font-family="Arial" font-size="64" font-weight="800">B</text>
+  <text x="206" y="105" fill="#f0c76e" font-family="Arial" font-size="23" font-weight="700" letter-spacing="6">BESDERWILL · OEM / ODM</text>
+  <text x="78" y="260" fill="#fff" font-family="Arial" font-size="70" font-weight="800">Custom Bags Built for</text>
+  <text x="78" y="343" fill="#fff" font-family="Arial" font-size="70" font-weight="800">Global Markets</text>
+  <text x="82" y="423" fill="#d9e8f5" font-family="Arial" font-size="27">Design · Sampling · Manufacturing · Quality Control · Export</text>
+  <rect x="78" y="490" width="250" height="58" rx="10" fill="#f0c76e"/><text x="203" y="528" fill="#0b345d" text-anchor="middle" font-family="Arial" font-size="22" font-weight="800">BESDERWILL</text>
+</svg>

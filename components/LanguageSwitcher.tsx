@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { CaretDown, GlobeHemisphereWest } from "@phosphor-icons/react";
 import { languageOptions, localePath, type Locale } from "@/lib/i18n";

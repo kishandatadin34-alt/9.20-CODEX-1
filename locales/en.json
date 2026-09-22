@@ -1,5 +1,6 @@
 {
   "whatsapp": "Contact us on WhatsApp",
+  "formStatus": {"sending": "Sending...", "error": "We couldn't send your inquiry. Please try again or contact us on WhatsApp."},
   "seo": {
     "home": {
       "title": "Custom School Bag Manufacturer | BESDERWILL OEM & ODM",

@@ -1,5 +1,6 @@
 {
   "whatsapp": "Kontaktieren Sie uns über WhatsApp",
+  "formStatus": {"sending": "Wird gesendet...", "error": "Ihre Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns über WhatsApp."},
   "seo": {
     "home": { "title": "Hersteller individueller Schulranzen | BESDERWILL OEM & ODM", "description": "BESDERWILL fertigt individuelle Schultaschen, Rucksäcke und Private-Label-Kollektionen für internationale Marken, Groß- und Einzelhändler.", "keywords": ["Hersteller individuelle Schultaschen", "Rucksackfabrik China", "Schultaschen OEM", "Rucksack ODM Lieferant", "Private Label Taschen"] },
     "product": { "title": "Hersteller individueller Schulrucksäcke | OEM & ODM", "description": "Entwickeln Sie individuelle Schulrucksäcke mit flexiblen Materialien, Farben, Logos und Verpackungen. MOQ ab 500 Stück mit BESDERWILL.", "keywords": ["individueller Schulrucksack", "Schultasche OEM", "Private Label Rucksack", "Schulrucksack Hersteller", "Taschenfabrik"] }

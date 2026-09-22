@@ -94,3 +94,6 @@
 .whatsapp-float:hover .whatsapp-tooltip,.whatsapp-float:focus-within .whatsapp-tooltip{opacity:1;transform:translateX(0)}
 @media(max-width:700px){.whatsapp-float{right:max(15px,env(safe-area-inset-right));bottom:max(15px,env(safe-area-inset-bottom))}.whatsapp-button{width:54px;height:54px}.whatsapp-button svg{width:31px;height:31px}.whatsapp-tooltip{display:none}}
 @media(prefers-reduced-motion:reduce){.whatsapp-button,.whatsapp-tooltip{transition:none}.whatsapp-button:hover{transform:none}}
+
+/* FormSubmit feedback and bot protection. */
+.form-honey{display:none!important}.form-submit-error{grid-column:1/-1;margin:4px 0 0!important;padding:8px 10px;border-radius:5px;background:rgba(255,255,255,.14);color:#fff!important;font-size:11px!important;line-height:1.4}.pd-hero-form .form-submit-error{background:#fff2f4;color:#b12e4a!important}button:disabled{cursor:wait;opacity:.72}

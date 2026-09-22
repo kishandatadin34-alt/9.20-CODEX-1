@@ -8,10 +8,13 @@ import {
   FileArrowDown, MapPin, SealCheck, UsersThree,
 } from "@phosphor-icons/react";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import FormSubmitFields, { FORM_SUBMIT_ACTION } from "@/components/FormSubmitFields";
 import type { Dictionary } from "@/lib/dictionaries";
+import { sendFormSubmitInquiry } from "@/lib/formsubmit";
 import { localePath, type Locale } from "@/lib/i18n";
 
 type HomePageProps = { locale: Locale; dictionary: Dictionary };
+type SubmissionState = "idle" | "sending" | "success" | "error";
 
 const productImages: Record<string, string> = {
   school: "/images/category-student.png",
@@ -30,14 +33,23 @@ const factoryImages = [
 
 export default function HomePage({ locale, dictionary }: HomePageProps) {
   const [openFaq, setOpenFaq] = useState(0);
-  const [submitted, setSubmitted] = useState(false);
-  const { common, home } = dictionary;
+  const [submissionState, setSubmissionState] = useState<SubmissionState>("idle");
+  const { common, home, formStatus } = dictionary;
   const root = localePath(locale, "/");
   const productPath = localePath(locale, "/products/custom-school-bag");
 
-  function submitInquiry(event: FormEvent<HTMLFormElement>) {
+  async function submitInquiry(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+    const form = event.currentTarget;
+    setSubmissionState("sending");
+
+    try {
+      await sendFormSubmitInquiry(form);
+      form.reset();
+      setSubmissionState("success");
+    } catch {
+      setSubmissionState("error");
+    }
   }
 
   return (
@@ -75,7 +87,7 @@ export default function HomePage({ locale, dictionary }: HomePageProps) {
         <div className="suite-form"><h2>{home.certifications.title}</h2><p>{home.certifications.description}</p><div className="document"><FileArrowDown size={45} /><span><strong>{home.certifications.documentTitle}</strong><small>{home.certifications.documentText}</small></span></div><a className="suite-submit" href="#quote">{common.getQuote} <ArrowRight size={16} /></a></div>
       </section>
 
-      <section id="quote" className="quote-section"><div className="quote-copy"><p className="eyebrow light">{home.quote.eyebrow}</p><h2>{home.quote.title}</h2><p>{home.quote.description}</p><p className="script">{home.quote.script}</p></div><form className="quote-form" onSubmit={submitInquiry}>{submitted ? <div className="success"><CheckCircle size={40} weight="fill" /><h3>{home.quote.successTitle}</h3><p>{home.quote.successText}</p><button type="button" className="button button-outline inverse" onClick={() => setSubmitted(false)}>{home.quote.again}</button></div> : <><label>{home.quote.name}<input required name="name" placeholder={home.quote.namePlaceholder} /></label><label>{home.quote.email}<input required type="email" name="email" placeholder={home.quote.emailPlaceholder} /></label><label>{home.quote.country}<input required name="country" placeholder={home.quote.countryPlaceholder} /></label><label>{home.quote.product}<input required name="product" placeholder={home.quote.productPlaceholder} /></label><label className="full">{home.quote.message}<textarea required name="message" placeholder={home.quote.messagePlaceholder} /></label><button className="button button-coral" type="submit">{home.quote.submit} <ArrowRight size={18} /></button></>}</form></section>
+      <section id="quote" className="quote-section"><div className="quote-copy"><p className="eyebrow light">{home.quote.eyebrow}</p><h2>{home.quote.title}</h2><p>{home.quote.description}</p><p className="script">{home.quote.script}</p></div><form className="quote-form" action={FORM_SUBMIT_ACTION} method="POST" onSubmit={submitInquiry} aria-busy={submissionState === "sending"}><FormSubmitFields locale={locale} pagePath={root} source="Homepage quote form" subject="New BESDERWILL website inquiry" />{submissionState === "success" ? <div className="success"><CheckCircle size={40} weight="fill" /><h3>{home.quote.successTitle}</h3><p>{home.quote.successText}</p><button type="button" className="button button-outline inverse" onClick={() => setSubmissionState("idle")}>{home.quote.again}</button></div> : <><label>{home.quote.name}<input required name="name" autoComplete="name" placeholder={home.quote.namePlaceholder} /></label><label>{home.quote.email}<input required type="email" name="email" autoComplete="email" placeholder={home.quote.emailPlaceholder} /></label><label>{home.quote.country}<input required name="country" autoComplete="country-name" placeholder={home.quote.countryPlaceholder} /></label><label>{home.quote.product}<input required name="product" placeholder={home.quote.productPlaceholder} /></label><label className="full">{home.quote.message}<textarea required name="message" placeholder={home.quote.messagePlaceholder} /></label><button className="button button-coral" type="submit" disabled={submissionState === "sending"}>{submissionState === "sending" ? formStatus.sending : home.quote.submit} <ArrowRight size={18} /></button>{submissionState === "error" ? <p className="form-submit-error" role="alert">{formStatus.error}</p> : null}</>}</form></section>
 
       <section id="contact" className="location-section" aria-labelledby="location-title"><div className="location-card"><p className="eyebrow">{home.location.eyebrow}</p><h2 id="location-title">{home.location.title}</h2><p className="location-intro">{home.location.description}</p><div className="location-address"><span className="location-pin"><MapPin size={24} weight="fill" /></span><div><small>{home.location.addressLabel}</small><address>{common.address}</address></div></div><div className="location-meta"><span>{home.location.city}</span><span>{home.location.postal}</span></div><a className="location-link" href="https://www.openstreetmap.org/search?query=Rm.%20601%2C%20He%20Hui%20Xin%20Tian%20Di%2C%20No.%20241%2C%20Helong%206th%20Rd.%2C%20Ren%20He%20Town%2C%20Baiyun%20District%2C%20Guangzhou%2C%20China%20510470" target="_blank" rel="noopener noreferrer">{home.location.openMap} <ArrowSquareOut size={17} weight="bold" /></a></div><div className="location-map"><Image src="/images/openstreetmap-guangzhou-renhe.png" alt={home.location.mapAlt} fill sizes="(max-width: 900px) 100vw, 65vw" className="location-map-image" /><span className="map-focus" aria-hidden="true"><span><MapPin size={28} weight="fill" /></span></span><a className="map-hit" href="https://www.openstreetmap.org/search?query=Rm.%20601%2C%20He%20Hui%20Xin%20Tian%20Di%2C%20No.%20241%2C%20Helong%206th%20Rd.%2C%20Ren%20He%20Town%2C%20Baiyun%20District%2C%20Guangzhou%2C%20China%20510470" target="_blank" rel="noopener noreferrer" aria-label={home.location.openMap} /><div className="map-badge"><MapPin size={16} weight="fill" /><span><strong>BESDERWILL</strong><small>{home.location.city}</small></span></div><a className="map-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a></div></section>
 

@@ -1,5 +1,6 @@
 {
   "whatsapp": "Contactez-nous sur WhatsApp",
+  "formStatus": {"sending": "Envoi...", "error": "Votre demande n'a pas pu être envoyée. Réessayez ou contactez-nous sur WhatsApp."},
   "seo": {
     "home": { "title": "Fabricant de sacs scolaires sur mesure | BESDERWILL OEM & ODM", "description": "BESDERWILL fabrique des sacs scolaires, sacs à dos et collections en marque blanche pour les marques, grossistes et détaillants internationaux.", "keywords": ["fabricant sac scolaire personnalisé", "usine sac à dos Chine", "sacs scolaires OEM", "fournisseur sacs à dos ODM", "sacs marque blanche"] },
     "product": { "title": "Fabricant de sacs à dos scolaires personnalisés | OEM & ODM", "description": "Créez des sacs à dos scolaires sur mesure avec choix des matières, couleurs, logos et emballages. MOQ dès 500 pièces avec BESDERWILL.", "keywords": ["sac à dos scolaire personnalisé", "sac scolaire OEM", "sac à dos marque blanche", "fabricant sac scolaire", "usine sacs personnalisés"] }

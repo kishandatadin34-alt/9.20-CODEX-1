@@ -1,5 +1,6 @@
 {
   "whatsapp": "Contáctenos por WhatsApp",
+  "formStatus": {"sending": "Enviando...", "error": "No pudimos enviar su consulta. Inténtelo de nuevo o contáctenos por WhatsApp."},
   "seo": {
     "home": { "title": "Fabricante de mochilas escolares personalizadas | BESDERWILL OEM y ODM", "description": "BESDERWILL fabrica mochilas escolares y colecciones de marca privada para marcas, mayoristas y minoristas internacionales.", "keywords": ["fabricante mochilas escolares personalizadas", "fábrica mochilas China", "mochilas escolares OEM", "proveedor mochilas ODM", "bolsas marca privada"] },
     "product": { "title": "Fabricante de mochilas escolares personalizadas | OEM y ODM", "description": "Cree mochilas escolares a medida con materiales, colores, logotipos y embalajes flexibles. MOQ desde 500 unidades con BESDERWILL.", "keywords": ["mochila escolar personalizada", "bolsa escolar OEM", "mochila marca privada", "fabricante mochilas escolares", "fábrica bolsas personalizadas"] }

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import SiteHeader from "@/components/SiteHeader";
 import type { Dictionary } from "@/lib/dictionaries";
 import { company } from "@/lib/company";
 import { localePath, type Locale } from "@/lib/i18n";
@@ -36,19 +36,7 @@ export default function SeoLandingPage({
   return (
     <main className="seo-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
-      <header className="seo-header section-shell">
-        <Link href={root} aria-label="BESDERWILL home">
-          <Image src="/images/besderwill-logo.png" alt="BESDERWILL" width={190} height={60} priority />
-        </Link>
-        <nav aria-label="Primary navigation">
-          <Link href={localePath(locale, "/products/custom-school-bag")}>{dictionary.common.nav.products}</Link>
-          <Link href={localePath(locale, "/oem-odm")}>{dictionary.common.nav.oem}</Link>
-          <Link href={localePath(locale, "/factory")}>{dictionary.common.nav.factory}</Link>
-          <Link href={localePath(locale, "/quality-control")}>{dictionary.common.nav.quality}</Link>
-          <Link href={localePath(locale, "/contact")}>{dictionary.common.nav.contact}</Link>
-        </nav>
-        <LanguageSwitcher locale={locale} currentPath={currentPath} label={dictionary.common.language} />
-      </header>
+      <SiteHeader locale={locale} dictionary={dictionary} currentPath={currentPath} />
 
       <div className="seo-breadcrumb section-shell" aria-label="Breadcrumb">
         <Link href={root}>{dictionary.common.nav.home}</Link><span>/</span><span>{content.title}</span>

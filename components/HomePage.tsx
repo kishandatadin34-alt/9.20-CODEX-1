@@ -7,8 +7,8 @@ import {
   ArrowRight, ArrowSquareOut, CaretDown, CheckCircle, Cube, Factory,
   FileArrowDown, MapPin, SealCheck, UsersThree,
 } from "@phosphor-icons/react";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 import FormSubmitFields, { FORM_SUBMIT_ACTION } from "@/components/FormSubmitFields";
+import SiteHeader from "@/components/SiteHeader";
 import type { Dictionary } from "@/lib/dictionaries";
 import { sendFormSubmitInquiry } from "@/lib/formsubmit";
 import { localePath, type Locale } from "@/lib/i18n";
@@ -57,17 +57,7 @@ export default function HomePage({ locale, dictionary }: HomePageProps) {
 
   return (
     <main>
-      <header className="topbar">
-        <Link className="brand" href={root} aria-label="BESDERWILL home"><Image src="/images/besderwill-logo.png" alt="BESDERWILL" width={190} height={60} priority /></Link>
-        <nav className="nav" aria-label="Primary navigation">
-          <Link href={`${root}#products`}>{common.nav.products}</Link>
-          <Link href={localePath(locale, "/oem-odm")}>{common.nav.oem}</Link>
-          <Link href={localePath(locale, "/factory")}>{common.nav.factory}</Link>
-          <Link href={localePath(locale, "/about")}>{common.nav.about}</Link>
-          <Link href={localePath(locale, "/contact")}>{common.nav.contact}</Link>
-        </nav>
-        <div className="nav-actions"><LanguageSwitcher locale={locale} currentPath="/" label={common.language} /><a className="button button-primary compact" href="#quote">{common.getQuote} <ArrowRight size={16} /></a></div>
-      </header>
+      <SiteHeader locale={locale} dictionary={dictionary} currentPath="/" quoteHref="#quote" />
 
       <section id="home" className="hero section-shell">
         <div className="hero-copy"><p className="eyebrow">{home.hero.eyebrow}</p><h1>{home.hero.title}</h1><p className="hero-text">{home.hero.description}</p><div className="hero-buttons"><a className="button button-primary" href="#quote">{common.getQuote} <ArrowRight size={18} /></a><a className="button button-outline" href="#resources"><FileArrowDown size={18} /> {home.hero.catalog}</a></div></div>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import SiteHeader from "@/components/SiteHeader";
 import type { Dictionary } from "@/lib/dictionaries";
 import { localePath, type Locale } from "@/lib/i18n";
 import type { CategorySlug } from "@/lib/page-content";
@@ -21,11 +21,7 @@ export default function CategoryLandingPage({ locale, dictionary, slug, content 
   return (
     <main className="seo-page category-landing">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
-      <header className="seo-header section-shell">
-        <Link href={root}><Image src="/images/besderwill-logo.png" alt="BESDERWILL" width={190} height={60} priority /></Link>
-        <nav><Link href={`${root}#products`}>{dictionary.common.nav.products}</Link><Link href={localePath(locale, "/oem-odm")}>{dictionary.common.nav.oem}</Link><Link href={localePath(locale, "/factory")}>{dictionary.common.nav.factory}</Link><Link href={localePath(locale, "/contact")}>{dictionary.common.nav.contact}</Link></nav>
-        <LanguageSwitcher locale={locale} currentPath={currentPath} label={dictionary.common.language} />
-      </header>
+      <SiteHeader locale={locale} dictionary={dictionary} currentPath={currentPath} />
       <div className="seo-breadcrumb section-shell"><Link href={root}>{dictionary.common.nav.home}</Link><span>/</span><Link href={`${root}#products`}>{dictionary.common.nav.products}</Link><span>/</span><span>{content.name}</span></div>
       <section className="category-hero section-shell">
         <div><p className="eyebrow">OEM / ODM · PRIVATE LABEL</p><h1>{content.h1}</h1><p>{content.intro}</p><Link className="button button-primary" href={`${root}#quote`}>{content.cta}<span aria-hidden="true">→</span></Link></div>

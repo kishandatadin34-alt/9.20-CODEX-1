@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { ArrowRight, CaretDown, CheckCircle, Cube, Factory, GlobeHemisphereWest, Package, ShieldCheck, Timer, Truck } from "@phosphor-icons/react";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 import FormSubmitFields, { FORM_SUBMIT_ACTION } from "@/components/FormSubmitFields";
+import SiteHeader from "@/components/SiteHeader";
 import type { Dictionary } from "@/lib/dictionaries";
 import { sendFormSubmitInquiry } from "@/lib/formsubmit";
 import { localePath, type Locale } from "@/lib/i18n";
@@ -40,7 +40,7 @@ export default function ProductPage({ locale, dictionary }: ProductPageProps) {
   }
 
   return <main className="product-detail">
-    <header className="pd-header"><Link href={root} className="pd-brand"><Image src="/images/besderwill-logo.png" alt="BESDERWILL" width={190} height={60} priority /></Link><nav><Link href={root}>{common.nav.home}</Link><a href="#product">{common.nav.products}</a><Link href={localePath(locale, "/oem-odm")}>{common.nav.oem}</Link><Link href={localePath(locale, "/quality-control")}>{common.nav.quality}</Link><Link href={localePath(locale, "/contact")}>{common.nav.contact}</Link></nav><div className="pd-actions"><LanguageSwitcher locale={locale} currentPath={currentPath} label={common.language} /><a href="#contact" className="pd-quote">{common.getQuote}</a></div></header>
+    <SiteHeader locale={locale} dictionary={dictionary} currentPath={currentPath} quoteHref="#contact" />
 
     <nav className="pd-breadcrumb" aria-label="Breadcrumb"><Link href={root}>{common.nav.home}</Link><span>/</span><Link href={`${root}#products`}>{common.nav.products}</Link><span>/</span><span>{product.options.specifications[0][1]}</span></nav>
 

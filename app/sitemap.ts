@@ -1,12 +1,14 @@
 import type { MetadataRoute } from "next";
 import { languageAlternates, localePath, locales } from "@/lib/i18n";
 import { absoluteUrl } from "@/lib/seo";
+import { catalogProductPath, catalogProducts } from "@/lib/catalog-products";
 import { categorySlugs, contentPageSlugs } from "@/lib/page-content";
 
 const pages = [
   { path: "/", changeFrequency: "weekly" as const, priority: 1, lastModified: "2026-09-22" },
-  { path: "/products/custom-school-bag", changeFrequency: "monthly" as const, priority: 0.9, lastModified: "2026-09-22" },
-  ...categorySlugs.map((slug) => ({ path: `/products/${slug}`, changeFrequency: "monthly" as const, priority: 0.8, lastModified: "2026-09-22" })),
+  { path: "/products", changeFrequency: "weekly" as const, priority: 0.9, lastModified: "2026-09-23" },
+  ...categorySlugs.map((slug) => ({ path: `/products/${slug}`, changeFrequency: "monthly" as const, priority: 0.8, lastModified: "2026-09-24" })),
+  ...catalogProducts.map((item) => ({ path: catalogProductPath(item), changeFrequency: "monthly" as const, priority: 0.75, lastModified: "2026-09-24" })),
   ...contentPageSlugs.map((slug) => ({ path: `/${slug}`, changeFrequency: "monthly" as const, priority: slug === "privacy-policy" || slug === "terms" ? 0.3 : 0.75, lastModified: "2026-09-22" })),
 ];
 

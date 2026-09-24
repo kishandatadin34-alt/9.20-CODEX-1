@@ -2,118 +2,80 @@ import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
 
 export const categorySlugs = [
-  "laptop-backpacks",
-  "rolling-backpacks",
-  "business-backpacks",
-  "crossbody-bags",
+  "kindergarten-schoolbags",
+  "eva-schoolbags",
+  "trolley-schoolbag-sets",
+  "urban-casual-backpacks",
+  "3-in-1-schoolbag-sets",
+  "4-in-1-schoolbag-sets",
+  "5-in-1-schoolbag-sets",
 ] as const;
 
 export type CategorySlug = (typeof categorySlugs)[number];
 
 export const categoryRoutes: Record<string, string> = {
-  school: "/products/custom-school-bag",
-  laptop: "/products/laptop-backpacks",
-  rolling: "/products/rolling-backpacks",
-  business: "/products/business-backpacks",
-  chest: "/products/crossbody-bags",
+  kindergarten: "/products/kindergarten-schoolbags",
+  eva: "/products/eva-schoolbags",
+  trolley: "/products/trolley-schoolbag-sets",
+  urban: "/products/urban-casual-backpacks",
+  set3: "/products/3-in-1-schoolbag-sets",
+  set4: "/products/4-in-1-schoolbag-sets",
+  set5: "/products/5-in-1-schoolbag-sets",
 };
 
 const categoryIndex: Record<CategorySlug, number> = {
-  "laptop-backpacks": 1,
-  "rolling-backpacks": 2,
-  "business-backpacks": 3,
-  "crossbody-bags": 4,
+  "kindergarten-schoolbags": 0,
+  "eva-schoolbags": 1,
+  "trolley-schoolbag-sets": 2,
+  "urban-casual-backpacks": 3,
+  "3-in-1-schoolbag-sets": 4,
+  "4-in-1-schoolbag-sets": 5,
+  "5-in-1-schoolbag-sets": 6,
 };
 
-const categoryImages: Record<CategorySlug, string> = {
-  "laptop-backpacks": "/images/category-laptop.png",
-  "rolling-backpacks": "/images/category-rolling.png",
-  "business-backpacks": "/images/category-business.png",
-  "crossbody-bags": "/images/category-crossbody.png",
+export const categoryImages: Record<CategorySlug, string> = {
+  "kindergarten-schoolbags": "/images/product-series/kindergarten-schoolbags.jpg",
+  "eva-schoolbags": "/images/product-series/eva-schoolbags.jpg",
+  "trolley-schoolbag-sets": "/images/product-series/trolley-schoolbag-sets.jpg",
+  "urban-casual-backpacks": "/images/product-series/urban-casual-backpacks.jpg",
+  "3-in-1-schoolbag-sets": "/images/product-series/3-in-1-schoolbag-sets.jpg",
+  "4-in-1-schoolbag-sets": "/images/product-series/4-in-1-schoolbag-sets.jpg",
+  "5-in-1-schoolbag-sets": "/images/product-series/5-in-1-schoolbag-sets.jpg",
 };
 
-const categoryCopy: Record<Locale, {
-  seoSuffix: string;
-  h1: (name: string) => string;
-  intro: (name: string) => string;
-  sections: Array<{ title: string; text: (name: string) => string }>;
-  cta: string;
-}> = {
-  en: {
-    seoSuffix: "Manufacturer | OEM & ODM",
-    h1: (name) => `Custom ${name} for Your Market`,
-    intro: (name) => `${name} developed for brands, wholesalers and retailers that need dependable private-label production, clear specifications and export-ready packing.`,
-    sections: [
-      { title: "Product planning", text: (name) => `Tell us the target user, market, capacity, price range and required features. Our team turns those requirements into a practical ${name.toLowerCase()} specification before sampling.` },
-      { title: "Materials and branding", text: () => "Choose polyester, RPET, nylon or canvas together with lining, zippers, hardware, Pantone colors, embroidery, print, patches and retail packaging." },
-      { title: "Sampling and approval", text: () => "A pre-production sample confirms dimensions, construction, logo placement and workmanship. Timing is confirmed after materials and artwork are approved." },
-      { title: "Quality and export preparation", text: () => "Material checks, in-line inspection and final shipment inspection are planned around the approved sample. Carton marks, labels and packing details are checked before dispatch." },
-    ],
-    cta: "Send your requirements",
-  },
-  fr: {
-    seoSuffix: "Fabricant OEM & ODM",
-    h1: (name) => `${name} personnalisés pour votre marché`,
-    intro: (name) => `${name} développés pour les marques, grossistes et détaillants recherchant une production fiable en marque blanche et un emballage prêt à l'export.`,
-    sections: [
-      { title: "Planification produit", text: () => "Indiquez l'utilisateur cible, le marché, la capacité, le prix et les fonctions souhaitées. Nous préparons un cahier des charges réaliste avant l'échantillonnage." },
-      { title: "Matières et identité", text: () => "Choisissez polyester, RPET, nylon ou toile, ainsi que doublure, zips, couleurs Pantone, broderie, impression, écussons et emballage." },
-      { title: "Échantillon et validation", text: () => "L'échantillon de préproduction confirme dimensions, construction, position du logo et finitions avant la production en série." },
-      { title: "Qualité et préparation export", text: () => "Contrôle des matières, inspection en cours de production et contrôle final sont réalisés selon l'échantillon validé." },
-    ],
-    cta: "Envoyer vos exigences",
-  },
-  es: {
-    seoSuffix: "Fabricante OEM y ODM",
-    h1: (name) => `${name} personalizadas para su mercado`,
-    intro: (name) => `${name} desarrolladas para marcas, mayoristas y minoristas que necesitan producción de marca privada fiable y embalaje listo para exportar.`,
-    sections: [
-      { title: "Planificación del producto", text: () => "Indique el usuario, mercado, capacidad, precio y funciones. Preparamos una especificación práctica antes de crear la muestra." },
-      { title: "Materiales y marca", text: () => "Elija poliéster, RPET, nailon o lona, además de forro, cremalleras, colores Pantone, bordado, impresión, parches y embalaje." },
-      { title: "Muestra y aprobación", text: () => "La muestra de preproducción confirma medidas, estructura, logotipo y acabados antes de la producción en serie." },
-      { title: "Calidad y exportación", text: () => "Comprobamos materiales, producción y producto final según la muestra aprobada antes del envío." },
-    ],
-    cta: "Enviar sus requisitos",
-  },
-  ja: {
-    seoSuffix: "OEM・ODMメーカー",
-    h1: (name) => `市場に合わせたカスタム${name}`,
-    intro: (name) => `${name}を、ブランド、卸売、小売向けに企画・生産。仕様確認から輸出梱包まで対応します。`,
-    sections: [
-      { title: "商品企画", text: () => "対象ユーザー、販売市場、容量、目標価格、必要機能を確認し、サンプル前に実用的な仕様をまとめます。" },
-      { title: "素材・ブランディング", text: () => "ポリエステル、RPET、ナイロン、キャンバス、ファスナー、Pantoneカラー、刺繍、印刷、ワッペンに対応します。" },
-      { title: "サンプル確認", text: () => "量産前サンプルで寸法、構造、ロゴ位置、縫製仕上げを確認します。" },
-      { title: "品質・輸出準備", text: () => "素材検査、工程内検査、最終出荷検査を実施し、梱包とカートン表示を確認します。" },
-    ],
-    cta: "要件を送信",
-  },
-  de: {
-    seoSuffix: "OEM- & ODM-Hersteller",
-    h1: (name) => `Individuelle ${name} für Ihren Markt`,
-    intro: (name) => `${name} für Marken, Groß- und Einzelhändler, die verlässliche Private-Label-Fertigung und exportgerechte Verpackung benötigen.`,
-    sections: [
-      { title: "Produktplanung", text: () => "Nennen Sie Zielgruppe, Markt, Volumen, Zielpreis und Funktionen. Vor der Musterphase erstellen wir eine praktikable Spezifikation." },
-      { title: "Materialien und Branding", text: () => "Wählen Sie Polyester, RPET, Nylon oder Canvas sowie Futter, Reißverschlüsse, Pantone-Farben, Stickerei, Druck, Patches und Verpackung." },
-      { title: "Muster und Freigabe", text: () => "Das Vorserienmuster bestätigt Maße, Konstruktion, Logoposition und Verarbeitung vor der Serienproduktion." },
-      { title: "Qualität und Export", text: () => "Material-, Produktions- und Endkontrollen erfolgen anhand des freigegebenen Musters vor dem Versand." },
-    ],
-    cta: "Anforderungen senden",
-  },
+export const categoryImagesByType: Record<string, string> = {
+  kindergarten: categoryImages["kindergarten-schoolbags"],
+  eva: categoryImages["eva-schoolbags"],
+  trolley: categoryImages["trolley-schoolbag-sets"],
+  urban: categoryImages["urban-casual-backpacks"],
+  set3: categoryImages["3-in-1-schoolbag-sets"],
+  set4: categoryImages["4-in-1-schoolbag-sets"],
+  set5: categoryImages["5-in-1-schoolbag-sets"],
 };
 
 export function getCategoryContent(locale: Locale, slug: CategorySlug, dictionary: Dictionary) {
   const item = dictionary.home.products.items[categoryIndex[slug]];
-  const copy = categoryCopy[locale];
+  const copy = dictionary.seriesPage;
+  const h1 = copy.titleTemplate.replace("{name}", item.title);
+  const intro = copy.descriptionTemplate.replace("{name}", item.title);
   return {
     name: item.title,
     caption: item.caption,
     image: categoryImages[slug],
     title: `${item.title} | ${copy.seoSuffix} | BESDERWILL`,
-    description: copy.intro(item.title),
-    h1: copy.h1(item.title),
-    intro: copy.intro(item.title),
-    sections: copy.sections.map((section) => ({ title: section.title, text: section.text(item.title) })),
+    description: intro,
+    h1,
+    intro,
+    sections: copy.sections,
     cta: copy.cta,
+    imageAlt: copy.imageAlt.replace("{name}", item.title),
+    moqLabel: copy.moqLabel,
+    moqValue: copy.moqValue,
+    leadTimeLabel: copy.leadTimeLabel,
+    leadTimeValue: copy.leadTimeValue,
+    detailsTitle: copy.detailsTitle,
+    relatedTitle: copy.relatedTitle,
+    viewSeries: copy.viewSeries,
   };
 }
 
@@ -278,4 +240,3 @@ export function getContentPage(locale: Locale, slug: ContentPageSlug, dictionary
 
   return pages[slug];
 }
-

@@ -12,19 +12,11 @@ import SiteHeader from "@/components/SiteHeader";
 import type { Dictionary } from "@/lib/dictionaries";
 import { sendFormSubmitInquiry } from "@/lib/formsubmit";
 import { localePath, type Locale } from "@/lib/i18n";
-import { categoryRoutes, complianceCopy } from "@/lib/page-content";
+import { categoryImagesByType, categoryRoutes, complianceCopy } from "@/lib/page-content";
 import { company } from "@/lib/company";
 
 type HomePageProps = { locale: Locale; dictionary: Dictionary };
 type SubmissionState = "idle" | "sending" | "success" | "error";
-
-const productImages: Record<string, string> = {
-  school: "/images/category-student.png",
-  laptop: "/images/category-laptop.png",
-  rolling: "/images/category-rolling.png",
-  business: "/images/category-business.png",
-  chest: "/images/category-crossbody.png",
-};
 
 const factoryImages = [
   "/images/product-global-team-v2.png",
@@ -38,7 +30,7 @@ export default function HomePage({ locale, dictionary }: HomePageProps) {
   const [submissionState, setSubmissionState] = useState<SubmissionState>("idle");
   const { common, home, formStatus } = dictionary;
   const root = localePath(locale, "/");
-  const productPath = localePath(locale, "/products/custom-school-bag");
+  const productPath = localePath(locale, "/products");
   const compliance = complianceCopy[locale];
 
   async function submitInquiry(event: FormEvent<HTMLFormElement>) {
@@ -68,7 +60,7 @@ export default function HomePage({ locale, dictionary }: HomePageProps) {
         {home.stats.map((stat, index) => { const Icon = [Factory, UsersThree, Cube, SealCheck][index]; return <div key={stat.label}><Icon size={32} weight="fill" /><strong>{stat.value}</strong><span>{stat.label}</span></div>; })}
       </section>
 
-      <section id="products" className="products section"><div className="section-shell"><div className="series-heading"><h2>{home.products.title}</h2><p>{home.products.description}</p></div><div className="category-grid">{home.products.items.map((item) => <Link href={localePath(locale, categoryRoutes[item.type] ?? "/products/custom-school-bag")} className="category" key={item.title}><div className="category-image"><Image src={productImages[item.type] ?? productImages.school} alt={item.title} width={520} height={370} sizes="(max-width: 480px) 150px, (max-width: 900px) 45vw, 19vw" className="product-art" /></div><div className="category-copy"><strong>{item.title}</strong><span>{item.caption}</span></div><span className="category-arrow" aria-hidden="true"><ArrowRight size={17} weight="bold" /></span></Link>)}</div></div></section>
+      <section id="products" className="products section"><div className="section-shell"><div className="series-heading"><h2>{home.products.title}</h2><p>{home.products.description}</p><Link className="series-all-link" href={productPath}>{common.nav.products} <ArrowRight size={15} /></Link></div><div className="category-grid">{home.products.items.map((item) => <Link href={localePath(locale, categoryRoutes[item.type] ?? "/products")} className="category" key={item.type}><div className="category-image"><Image src={categoryImagesByType[item.type]} alt={item.title} width={520} height={293} sizes="(max-width: 480px) 150px, (max-width: 900px) 45vw, 24vw" className="product-art" /></div><div className="category-copy"><strong>{item.title}</strong><span>{item.caption}</span></div><span className="category-arrow" aria-hidden="true"><ArrowRight size={17} weight="bold" /></span></Link>)}</div></div></section>
 
       <section id="oem" className="section-shell process section"><div className="section-heading"><h2>{home.process.title}</h2><p>{home.process.description}</p></div><div className="process-line">{home.process.steps.map((step, index) => <article key={step.title}><b>{String(index + 1).padStart(2, "0")}</b><div><h3>{step.title}</h3><p>{step.text}</p></div><ArrowRight className="process-arrow" size={22} /></article>)}</div></section>
 

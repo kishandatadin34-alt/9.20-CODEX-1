@@ -41,13 +41,15 @@
     ],
     "products": {
       "title": "Our Product Series",
-      "description": "Diverse styles for different markets — all can be customized with your brand.",
+      "description": "Seven catalog series for custom schoolbag programs.",
       "items": [
-        { "title": "Student School Bags", "caption": "Bright, durable everyday sets", "type": "school" },
-        { "title": "Laptop Bags", "caption": "Organized for modern study", "type": "laptop" },
-        { "title": "Rolling Backpacks", "caption": "Practical mobility for school trips", "type": "rolling" },
-        { "title": "Business Backpacks", "caption": "Professional utility for every journey", "type": "business" },
-        { "title": "Chest & Crossbody Bags", "caption": "Compact styles for on-the-go", "type": "chest" }
+        { "title": "Kindergarten Schoolbags", "caption": "Catalog styles for early-years programs", "type": "kindergarten" },
+        { "title": "EVA Schoolbags", "caption": "EVA schoolbag designs from our catalog", "type": "eva" },
+        { "title": "Trolley Schoolbag Sets", "caption": "Rolling formats for school collections", "type": "trolley" },
+        { "title": "Urban Casual Backpacks", "caption": "Everyday campus-inspired backpack styles", "type": "urban" },
+        { "title": "3-in-1 Schoolbag Sets", "caption": "Coordinated three-piece collections", "type": "set3" },
+        { "title": "4-in-1 Schoolbag Sets", "caption": "Coordinated four-piece collections", "type": "set4" },
+        { "title": "5-in-1 Schoolbag Sets", "caption": "Extended five-piece collections", "type": "set5" }
       ]
     },
     "process": {
@@ -83,7 +85,7 @@
       "title": "Frequently Asked Questions",
       "description": "Quick answers to common sourcing questions.",
       "items": [
-        { "question": "What is your minimum order quantity (MOQ)?", "answer": "MOQ depends on the product, fabric and customization. Tell us your target design and we will recommend a practical starting quantity." },
+        { "question": "What is your minimum order quantity (MOQ)?", "answer": "The minimum order quantity is 500 pieces. Final color and design allocation is confirmed with the quotation." },
         { "question": "Can you customize our logo and design?", "answer": "Yes. We support custom artwork, fabrics, labels, hardware and packaging through our OEM/ODM workflow." },
         { "question": "How long does sample development take?", "answer": "Sampling lead time is confirmed after the design and materials are agreed." },
         { "question": "What are your main export markets?", "answer": "We work with buyers in the Middle East, Latin America and other global markets." },
@@ -107,6 +109,69 @@
       "openMap": "Open in OpenStreetMap",
       "mapAlt": "OpenStreetMap view of the BESDERWILL office area in Guangzhou"
     }
+  },
+  "productsPage": {
+    "eyebrow": "PRODUCT COLLECTIONS",
+    "title": "Schoolbag Series for Custom Programs",
+    "description": "Explore seven series from the current BESDERWILL catalog. Final dimensions, materials, colors, set contents and packaging are confirmed for each project before sampling.",
+    "termsTitle": "Confirmed sourcing terms",
+    "catalogNote": "Series images are taken from the current BESDERWILL catalog. Request the latest specification for your selected design.",
+    "cardCta": "Explore series",
+    "customTitle": "Need a series adapted to your market?",
+    "customText": "Send your target age group, quantity, branding, preferred structure and destination market. We will confirm the available design path before sampling."
+  },
+  "seriesPage": {
+    "seoSuffix": "OEM & ODM Schoolbag Series",
+    "eyebrow": "SCHOOLBAG SERIES · OEM / ODM",
+    "titleTemplate": "Custom {name} for Your Market",
+    "descriptionTemplate": "{name} shown in the current BESDERWILL catalog for custom sourcing projects. Final dimensions, materials, colors, set contents and packaging are confirmed before sampling.",
+    "imageAlt": "{name} catalog series image",
+    "moqLabel": "Minimum Order Quantity",
+    "moqValue": "500 pcs",
+    "leadTimeLabel": "Production Lead Time",
+    "leadTimeValue": "45–60 days",
+    "detailsTitle": "Project details confirmed before sampling",
+    "sections": [
+      { "title": "Design selection", "text": "Select a catalog design or send a reference for review. Availability and the development path are confirmed for the selected project." },
+      { "title": "Specification confirmation", "text": "Dimensions, construction, materials, colors and set contents are documented for approval instead of assumed from catalog imagery." },
+      { "title": "Branding and packaging", "text": "Share your logo files, labeling requirements and packing needs so the applicable options can be confirmed in the quotation." },
+      { "title": "Sample approval", "text": "Mass-production details and timing are finalized after the project specification and sample approval process are confirmed." }
+    ],
+    "cta": "Send Your Requirements",
+    "relatedTitle": "Explore Other Product Series",
+    "viewSeries": "View Series"
+  },
+  "catalogProduct": {
+    "eyebrow": "CATALOG DESIGN REFERENCE",
+    "designLabel": "Catalog Design",
+    "collectionTitle": "Catalog design references",
+    "collectionIntro": "These product visuals are taken from the current BESDERWILL catalog. They identify design directions only; the final model, construction and specification are confirmed for each project.",
+    "viewDetails": "View Details",
+    "referenceBadge": "Visual reference",
+    "imageAltTemplate": "{series}, catalog design {number}",
+    "titleTemplate": "{series} · {design}",
+    "introTemplate": "This {design} image is a visual reference from the current BESDERWILL catalog. It does not represent a confirmed SKU or final production specification.",
+    "sourceLabel": "Catalog source",
+    "sourceTemplate": "New school bag catalog · page {page}",
+    "sourceNote": "The image-to-series relationship is confirmed from the catalog page. Model number, dimensions, materials and construction details are not listed in the source file.",
+    "featuresTitle": "Confirmed information",
+    "features": [
+      { "title": "Catalog-backed image", "text": "The product image and its series classification come directly from the current catalog." },
+      { "title": "OEM / ODM project path", "text": "The catalog states OEM / ODM service; the applicable development route is confirmed after design review." },
+      { "title": "Specification before sampling", "text": "Materials, dimensions, construction, colors and packing must be documented before a sample is made." }
+    ],
+    "specificationsTitle": "Specification status",
+    "specLabels": { "series": "Product series", "reference": "Catalog reference", "material": "Material", "dimensions": "Dimensions", "setContents": "Set contents", "application": "Application / age group", "moq": "Minimum order quantity", "leadTime": "Production lead time" },
+    "toBeConfirmed": "To be confirmed",
+    "projectBased": "Confirmed for the selected project",
+    "applicationTitle": "Application scenario",
+    "applicationText": "The target age group, use environment and market positioning are not stated for this catalog design. These items remain to be confirmed before public product claims are added.",
+    "relatedTitle": "Related catalog designs",
+    "backToSeries": "Back to series",
+    "quoteTitle": "Planning a custom program?",
+    "quoteText": "The quotation entry is reserved for later integration. Product requirements can be connected to the final inquiry workflow during the pre-launch check.",
+    "quoteButton": "Get a Quote",
+    "quotePending": "Inquiry connection pending"
   },
   "product": {
     "hero": {
@@ -133,12 +198,12 @@
     "options": {
       "title": "Product Specification & Customization Options",
       "specifications": [
-        ["Product Name", "Custom School Backpack"], ["Material Options", "Polyester, RPET, nylon, canvas"], ["Size", "Customizable"], ["Structure", "Front pocket, side pockets, padded straps"], ["Printing Method", "Silk screen, embroidery, heat transfer"], ["Applicable Age", "Kids / students"], ["OEM / ODM", "Fully supported"], ["Minimum Order Quantity", "500 pcs per style / color"], ["Sample Lead Time", "7–10 days"], ["Production Lead Time", "30–45 days"]
+        ["Product Name", "Custom School Backpack"], ["Material Options", "To be confirmed"], ["Size", "To be confirmed"], ["Structure", "To be confirmed"], ["Printing Method", "To be confirmed"], ["Applicable Age", "To be confirmed"], ["OEM / ODM", "Project-based support"], ["Minimum Order Quantity", "500 pcs"], ["Sample Lead Time", "To be confirmed"], ["Production Lead Time", "45–60 days"]
       ],
       "materialTitle": "Material Options", "materials": ["Polyester", "RPET", "Nylon", "Canvas"], "colorsTitle": "Popular Color Swatches", "colorsText": "Any color is possible. We match your brand.", "logoTitle": "Logo Techniques", "logos": ["Embroidery", "Silk Screen", "Heat Transfer", "Rubber Patch"], "packagingTitle": "Packaging Options", "packagingAlt": "Custom packaging examples"
     },
     "quality": {
-      "standardsTitle": "Global Standards. A Safer Tomorrow.", "standardsText": "Our products meet international standards, giving you confidence in every order.", "factoryTitle": "Our Factory. Your Quality Assurance.", "factoryText": "From raw materials to finished products, every step is carefully controlled.", "factoryAlt": "BESDERWILL factory quality process", "stats": ["8,000+ m² factory", "30–45 days production", "300,000+ pcs / month"]
+      "standardsTitle": "Global Standards. A Safer Tomorrow.", "standardsText": "Documentation for the applicable project can be discussed during quotation and sample review.", "factoryTitle": "Our Factory. Your Quality Assurance.", "factoryText": "From raw materials to finished products, every step is carefully controlled.", "factoryAlt": "BESDERWILL factory quality process", "stats": ["8,000+ m² factory", "45–60 days production", "300,000+ pcs / month"]
     },
     "trust": {
       "eyebrow": "BEHIND EVERY ORDER", "title": "People, Process & Proof.", "description": "From concept development to final export inspection, our teams make every project easier to trust.",

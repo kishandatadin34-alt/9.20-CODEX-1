@@ -9,6 +9,7 @@
 # Test and tool caches
 /coverage/
 /test-results/
+/tmp/
 /playwright-report/
 /.turbo/
 /.cache/

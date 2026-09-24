@@ -7,24 +7,17 @@ import { useState } from "react";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import type { Dictionary } from "@/lib/dictionaries";
 import { localePath, type Locale } from "@/lib/i18n";
-import { categoryRoutes } from "@/lib/page-content";
+import { categoryImagesByType, categoryRoutes } from "@/lib/page-content";
 
 type SiteHeaderProps = {
   locale: Locale;
   dictionary: Dictionary;
   currentPath: string;
   quoteHref?: string;
+  quoteEnabled?: boolean;
 };
 
-const productImages: Record<string, string> = {
-  school: "/images/category-student.png",
-  laptop: "/images/category-laptop.png",
-  rolling: "/images/category-rolling.png",
-  business: "/images/category-business.png",
-  chest: "/images/category-crossbody.png",
-};
-
-export default function SiteHeader({ locale, dictionary, currentPath, quoteHref }: SiteHeaderProps) {
+export default function SiteHeader({ locale, dictionary, currentPath, quoteHref, quoteEnabled = true }: SiteHeaderProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const { common, home } = dictionary;
@@ -80,7 +73,7 @@ export default function SiteHeader({ locale, dictionary, currentPath, quoteHref 
             <p className="eyebrow">{common.nav.products}</p>
             <p className="mega-title">{home.products.title}</p>
             <p>{home.products.description}</p>
-            <Link href={`${root}#products`} onClick={closeNavigation}>
+            <Link href={localePath(locale, "/products")} onClick={closeNavigation}>
               {common.nav.products} <ArrowRight size={14} weight="bold" />
             </Link>
           </div>
@@ -90,12 +83,12 @@ export default function SiteHeader({ locale, dictionary, currentPath, quoteHref 
               {items.map((item) => (
                 <Link
                   className="mega-product-link"
-                  href={localePath(locale, categoryRoutes[item.type] ?? "/products/custom-school-bag")}
+                  href={localePath(locale, categoryRoutes[item.type] ?? "/products")}
                   key={item.type}
                   onClick={closeNavigation}
                 >
                   <span className="mega-thumb">
-                    <Image src={productImages[item.type] ?? productImages.school} alt="" width={56} height={56} />
+                    <Image src={categoryImagesByType[item.type]} alt="" width={56} height={56} />
                   </span>
                   <span>
                     <strong>{item.title}</strong>
@@ -120,9 +113,11 @@ export default function SiteHeader({ locale, dictionary, currentPath, quoteHref 
 
       <div className="nav-actions">
         <LanguageSwitcher locale={locale} currentPath={currentPath} label={common.language} />
-        <a className="button button-primary compact header-quote" href={quoteLink} onClick={closeNavigation}>
+        {quoteEnabled ? <a className="button button-primary compact header-quote" href={quoteLink} onClick={closeNavigation}>
           {common.getQuote} <ArrowRight size={16} />
-        </a>
+        </a> : <span className="button button-primary compact header-quote button-disabled" aria-disabled="true">
+          {common.getQuote} <ArrowRight size={16} />
+        </span>}
         <button
           className="menu-toggle"
           type="button"

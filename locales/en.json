@@ -44,7 +44,7 @@
       "description": "Seven catalog series for custom schoolbag programs.",
       "items": [
         { "title": "Kindergarten Schoolbags", "caption": "Catalog styles for early-years programs", "type": "kindergarten" },
-        { "title": "EVA Schoolbags", "caption": "EVA schoolbag designs from our catalog", "type": "eva" },
+        { "title": "Student Schoolbags", "caption": "Student schoolbag designs from our catalog", "type": "eva" },
         { "title": "Trolley Schoolbag Sets", "caption": "Rolling formats for school collections", "type": "trolley" },
         { "title": "Urban Casual Backpacks", "caption": "Everyday campus-inspired backpack styles", "type": "urban" },
         { "title": "3-in-1 Schoolbag Sets", "caption": "Coordinated three-piece collections", "type": "set3" },

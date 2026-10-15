@@ -1,7 +1,7 @@
 export const company = {
   brand: "BESDERWILL",
   legalName: "Guangdong Besder Industrial Co., Ltd.",
-  email: "kishandatadin34@gmail.com",
+  email: "Sales@besdergroup.com",
   phoneDisplay: "+86 180 7398 4131",
   phoneE164: "+8618073984131",
   address:
@@ -12,4 +12,3 @@ export const company = {
   country: "CN",
   linkedIn: "https://www.linkedin.com/company/guangdong-besder-industrial-co-ltd",
 } as const;
-

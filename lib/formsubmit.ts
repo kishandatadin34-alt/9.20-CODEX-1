@@ -1,4 +1,4 @@
-export const FORM_SUBMIT_EMAIL = "kishandatadin34@gmail.com";
+export const FORM_SUBMIT_EMAIL = "Sales@besdergroup.com";
 export const FORM_SUBMIT_ACTION = `https://formsubmit.co/${FORM_SUBMIT_EMAIL}`;
 const FORM_SUBMIT_AJAX_ENDPOINT = `https://formsubmit.co/ajax/${FORM_SUBMIT_EMAIL}`;
 

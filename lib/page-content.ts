@@ -35,12 +35,12 @@ const categoryIndex: Record<CategorySlug, number> = {
 
 export const categoryImages: Record<CategorySlug, string> = {
   "kindergarten-schoolbags": "/images/product-series/kindergarten-schoolbags.jpg",
-  "eva-schoolbags": "/images/product-series/eva-schoolbags.jpg",
-  "trolley-schoolbag-sets": "/images/product-series/trolley-schoolbag-sets.jpg",
-  "urban-casual-backpacks": "/images/product-series/urban-casual-backpacks.jpg",
+  "eva-schoolbags": "/images/product-series/disney-school-bag-set.jpg",
+  "trolley-schoolbag-sets": "/images/product-series/disney-trolley-schoolbag-sets.jpg",
+  "urban-casual-backpacks": "/images/product-series/urban-casual-backpacks-v2.jpg",
   "3-in-1-schoolbag-sets": "/images/product-series/3-in-1-schoolbag-sets.jpg",
   "4-in-1-schoolbag-sets": "/images/product-series/4-in-1-schoolbag-sets.jpg",
-  "5-in-1-schoolbag-sets": "/images/product-series/5-in-1-schoolbag-sets.jpg",
+  "5-in-1-schoolbag-sets": "/images/product-series/business-backpack.jpg",
 };
 
 export const categoryImagesByType: Record<string, string> = {

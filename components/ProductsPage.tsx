@@ -68,7 +68,6 @@ export default function ProductsPage({ locale, dictionary }: { locale: Locale; d
             <div>
               <p>{String(categorySlugs.indexOf(item.slug) + 1).padStart(2, "0")}</p>
               <h2><Link href={localePath(locale, `/products/${item.slug}`)}>{item.name}</Link></h2>
-              <span>{item.caption}</span>
               <Link className="series-card-link" href={localePath(locale, `/products/${item.slug}`)}>{copy.cardCta} <ArrowRight size={15} weight="bold" /></Link>
             </div>
           </article>

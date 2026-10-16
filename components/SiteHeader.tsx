@@ -92,7 +92,6 @@ export default function SiteHeader({ locale, dictionary, currentPath, quoteHref,
                   </span>
                   <span>
                     <strong>{item.title}</strong>
-                    <small>{item.caption}</small>
                   </span>
                   <ArrowRight className="mega-item-arrow" size={13} weight="bold" />
                 </Link>

@@ -152,7 +152,7 @@
     "titleTemplate": "{series} · {design}",
     "introTemplate": "This {design} image is a visual reference from the current BESDERWILL catalog. It does not represent a confirmed SKU or final production specification.",
     "sourceLabel": "Catalog source",
-    "sourceTemplate": "New school bag catalog · page {page}",
+    "sourceTemplate": "{catalog} · page {page}",
     "sourceNote": "The image-to-series relationship is confirmed from the catalog page. Model number, dimensions, materials and construction details are not listed in the source file.",
     "featuresTitle": "Confirmed information",
     "features": [

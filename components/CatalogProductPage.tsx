@@ -32,7 +32,7 @@ export function getCatalogProductPresentation(locale: Locale, dictionary: Dictio
     title: replaceTokens(copy.titleTemplate, { series: series.name, design }),
     intro: replaceTokens(copy.introTemplate, { design }),
     imageAlt: replaceTokens(copy.imageAltTemplate, { series: series.name, number }),
-    source: replaceTokens(copy.sourceTemplate, { page: String(product.catalogPage) }),
+    source: replaceTokens(copy.sourceTemplate, { catalog: product.catalogName, page: String(product.catalogPage) }),
   };
 }
 

@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/products/5-in-1-schoolbag-sets/design-01",
+        destination: "/products/3-in-1-schoolbag-sets/design-13",
+        permanent: true,
+      },
+      {
+        source: "/:locale/products/5-in-1-schoolbag-sets/design-01",
+        destination: "/:locale/products/3-in-1-schoolbag-sets/design-13",
+        permanent: true,
+      },
+      {
         source: "/:path*",
         has: [{ type: "host", value: "www.besdergroup.com" }],
         destination: "https://besdergroup.com/:path*",
